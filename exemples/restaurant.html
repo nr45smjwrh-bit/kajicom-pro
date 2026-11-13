@@ -103,9 +103,10 @@ footer{background:var(--slate);color:var(--chalk-dim);padding:34px 0;text-align:
   .gallery img:first-child{grid-column:span 2;grid-row:auto}
 }
 @media (max-width:520px){.ticket{grid-template-columns:1fr 84px;-webkit-mask:none;mask:none}.stub b{font-size:1.8rem}.hero h1 em{padding-left:0}}
+.kic{width:1.1em;height:1.1em;display:inline-block;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 </style>
 </head>
-<body>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-glass" viewBox="0 0 24 24"><path d="M7 3h10l-1 6a4 4 0 0 1-8 0z"/><path d="M12 13v7M8.5 21h7M7.5 7h9"/></symbol></defs></svg>
 <div class="kc-demo"><span><b>Site de démonstration</b> conçu par KajiCom</span><a class="back" href="../index.html#realisations">← Retour</a><a href="../index.html#contact">Je veux un site comme ça</a></div>
 
 <header class="hero">
@@ -162,7 +163,7 @@ footer{background:var(--slate);color:var(--chalk-dim);padding:34px 0;text-align:
   <div class="reveal">
     <h2>Une table <em>pour ce soir ?</em></h2>
     <p style="color:var(--soft);margin-top:16px;max-width:420px">Choisissez, validez : c'est réservé. Vous recevez un SMS de confirmation et un rappel le jour même.</p>
-    <div class="seats">🍷 Plus que <b id="seats">6</b> couverts ce soir</div>
+    <div class="seats"><svg class="kic" aria-hidden="true"><use href="#i-glass"/></svg> Plus que <b id="seats">6</b> couverts ce soir</div>
   </div>
   <div class="ticket reveal">
     <form id="bookForm">

@@ -102,9 +102,10 @@ footer{padding:30px 0;font:500 .82rem var(--mono);color:var(--soft);display:flex
   .schema{max-width:360px}
 }
 @media (max-width:520px){.opts{grid-template-columns:1fr}.brand small{display:none}.estim{box-shadow:5px 5px 0 var(--ink)}}
+.kic{width:1.1em;height:1.1em;display:inline-block;vertical-align:-.18em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
 </style>
 </head>
-<body>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-bath" viewBox="0 0 24 24"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V6a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/></symbol><symbol id="i-call" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol><symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6.5 7 6.5 11.5a6.5 6.5 0 0 1-13 0C5.5 10 12 3 12 3z"/></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 21c-4 0-6.5-2.7-6.5-6.3 0-4 3.5-5.7 4-10.2 3 1.8 4.5 4 4.5 6.5 1-.5 1.8-1.6 2-3 1.6 1.7 2.5 4 2.5 6.7C18.5 18.3 16 21 12 21z"/></symbol><symbol id="i-shower" viewBox="0 0 24 24"><path d="M4 20V8a4 4 0 0 1 8 0"/><path d="M9 8h6"/><path d="M10 12v1M13 12v1M16 12v1M10 16v1M13 16v1M16 16v1"/></symbol><symbol id="i-tank" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="16" rx="5"/><path d="M9 21h6M12 7v4M10 11h4"/></symbol><symbol id="i-toilet" viewBox="0 0 24 24"><path d="M6 3h5v8H6z"/><path d="M4 11h16c0 4-3 7-7 7l1 3H8.5l1-3.2C6.5 16.8 4 14.5 4 11z"/></symbol><symbol id="i-toolbox" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5.5h6V8M3 13h18M10.5 13v2h3v-2"/></symbol></defs></svg>
 <div class="kc-demo"><span><b>Site de démonstration</b> conçu par KajiCom</span><a class="back" href="../index.html#realisations">← Retour</a><a href="../index.html#contact">Je veux un site comme ça</a></div>
 
 <div class="wrap">
@@ -119,7 +120,7 @@ footer{padding:30px 0;font:500 .82rem var(--mono);color:var(--soft);display:flex
     <span class="label">// DÉPANNAGE · INSTALLATION · ENTRETIEN</span>
     <h1>Une fuite ? <span>On arrive.</span></h1>
     <p>Un artisan du coin, un prix annoncé avant de commencer et un travail propre. Pas de mauvaise surprise sur la facture, jamais.</p>
-    <div class="cta"><a class="btn y" href="#prix">💧 Estimer mon prix</a><a class="btn" href="#appel">📞 03 23 00 00 03</a></div>
+    <div class="cta"><a class="btn y" href="#prix"><svg class="kic" aria-hidden="true"><use href="#i-drop"/></svg> Estimer mon prix</a><a class="btn" href="#appel"><svg class="kic" aria-hidden="true"><use href="#i-call"/></svg> 03 23 00 00 03</a></div>
   </div>
   <div class="schema" aria-hidden="true">
     <svg viewBox="0 0 400 400" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -150,12 +151,12 @@ footer{padding:30px 0;font:500 .82rem var(--mono);color:var(--soft);display:flex
     <div class="left">
       <h3>1. Votre problème</h3>
       <div class="opts" id="opts">
-        <button class="on" data-min="89" data-max="190"><span>💧</span>Fuite d'eau</button>
-        <button data-min="79" data-max="160"><span>🚽</span>WC bouché</button>
-        <button data-min="120" data-max="260"><span>🔥</span>Chaudière en panne</button>
-        <button data-min="690" data-max="1290"><span>🛢️</span>Chauffe-eau à changer</button>
-        <button data-min="59" data-max="140"><span>🚿</span>Robinet / mitigeur</button>
-        <button data-min="120" data-max="120"><span>🧰</span>Entretien chaudière</button>
+        <button class="on" data-min="89" data-max="190"><span><svg class="kic" aria-hidden="true"><use href="#i-drop"/></svg></span>Fuite d'eau</button>
+        <button data-min="79" data-max="160"><span><svg class="kic" aria-hidden="true"><use href="#i-toilet"/></svg></span>WC bouché</button>
+        <button data-min="120" data-max="260"><span><svg class="kic" aria-hidden="true"><use href="#i-flame"/></svg></span>Chaudière en panne</button>
+        <button data-min="690" data-max="1290"><span><svg class="kic" aria-hidden="true"><use href="#i-tank"/></svg></span>Chauffe-eau à changer</button>
+        <button data-min="59" data-max="140"><span><svg class="kic" aria-hidden="true"><use href="#i-shower"/></svg></span>Robinet / mitigeur</button>
+        <button data-min="120" data-max="120"><span><svg class="kic" aria-hidden="true"><use href="#i-toolbox"/></svg></span>Entretien chaudière</button>
       </div>
       <h3>2. Quand ?</h3>
       <div class="switch" id="when"><button class="on" data-k="1">Cette semaine</button><button data-k="1.35">Urgence aujourd'hui</button></div>
@@ -172,9 +173,9 @@ footer{padding:30px 0;font:500 .82rem var(--mono);color:var(--soft);display:flex
   <span class="label">// CE QU'ON FAIT</span>
   <h2>Tout ce qui touche à l'eau et au chaud.</h2>
   <div class="cards">
-    <div class="card reveal"><span class="ref">RÉF. 01</span><div class="ic">💧</div><h3>Recherche de fuite</h3><p>Détection sans casser vos murs, réparation dans la foulée quand c'est possible.</p></div>
-    <div class="card reveal"><span class="ref">RÉF. 02</span><div class="ic">🔥</div><h3>Chaudière</h3><p>Entretien annuel obligatoire, dépannage toutes marques et remplacement.</p></div>
-    <div class="card reveal"><span class="ref">RÉF. 03</span><div class="ic">🛁</div><h3>Salle de bain</h3><p>Rénovation complète, douche à l'italienne et aménagements accessibles.</p></div>
+    <div class="card reveal"><span class="ref">RÉF. 01</span><div class="ic"><svg class="kic" aria-hidden="true"><use href="#i-drop"/></svg></div><h3>Recherche de fuite</h3><p>Détection sans casser vos murs, réparation dans la foulée quand c'est possible.</p></div>
+    <div class="card reveal"><span class="ref">RÉF. 02</span><div class="ic"><svg class="kic" aria-hidden="true"><use href="#i-flame"/></svg></div><h3>Chaudière</h3><p>Entretien annuel obligatoire, dépannage toutes marques et remplacement.</p></div>
+    <div class="card reveal"><span class="ref">RÉF. 03</span><div class="ic"><svg class="kic" aria-hidden="true"><use href="#i-bath"/></svg></div><h3>Salle de bain</h3><p>Rénovation complète, douche à l'italienne et aménagements accessibles.</p></div>
   </div>
 </div></section>
 
