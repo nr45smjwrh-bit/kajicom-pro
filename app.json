@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "KajiCom Pro",
+    "slug": "kajicom-pro",
+    "owner": "krysg90ss-team",
+    "web": {
+      "output": "static"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f04b2eb2-fbc5-480d-8ca3-67e1e6f8e496"
+      }
+    }
+  }
+}

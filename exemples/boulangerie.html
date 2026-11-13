@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Lebrun · Boulangerie artisanale</title>
+<meta name="description" content="Site de démonstration KajiCom : boulangerie artisanale.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+:root{--crust:#7A4A24;--crust-d:#4A2A12;--flour:#FBF6EE;--wheat:#E9C99A;--butter:#F4E3C6;--ink:#2B1A0E;--soft:#6E5A49}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:400 16px/1.65 "Plus Jakarta Sans",system-ui,sans-serif;background:var(--flour);color:var(--ink)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.08;letter-spacing:-.01em;text-wrap:balance}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+header.top{position:absolute;left:0;right:0;z-index:5;padding-top:18px}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#fff}
+.brand{font-family:Fraunces;font-size:1.5rem;font-weight:700;text-decoration:none}
+.brand small{display:block;font:500 .7rem/1 "Plus Jakarta Sans";letter-spacing:.22em;text-transform:uppercase;opacity:.8;margin-top:4px}
+.menu{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+.menu a{text-decoration:none;opacity:.9}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-family:inherit;font-size:1rem;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.main{background:var(--wheat);color:var(--crust-d)}
+.btn.line{border:2px solid rgba(255,255,255,.8);color:#fff}
+.btn.dark{background:var(--crust-d);color:#fff}
+.hero{position:relative;min-height:min(92vh,760px);display:flex;align-items:flex-end;padding:140px 0 70px;color:#fff;
+  background:linear-gradient(180deg,rgba(43,26,14,.55),rgba(43,26,14,.15) 40%,rgba(43,26,14,.75)),url(../assets/photos/boulangerie-vitrine.jpg) center/cover}
+.hero h1{font-size:clamp(2.5rem,6vw,4.6rem);max-width:760px}
+.hero h1 em{font-weight:500;color:var(--wheat)}
+.hero p{max-width:540px;font-size:1.15rem;margin:18px 0 28px;opacity:.95}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.strip{background:var(--crust-d);color:var(--butter)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-block:20px;font-size:.95rem}
+.strip b{display:block;color:#fff;font-size:1rem}
+section{padding:90px 0}
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--crust)}
+h2{font-size:clamp(2rem,4vw,3rem);margin:10px 0 14px}
+.lead{color:var(--soft);max-width:600px;font-size:1.08rem}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.product{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 18px 40px -26px rgba(74,42,18,.5)}
+.product img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .6s}
+.product:hover img{transform:scale(1.05)}
+.product .in{padding:20px 22px 24px}
+.product h3{font-size:1.35rem}
+.product p{color:var(--soft);font-size:.95rem;margin:6px 0 14px}
+.price{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:var(--crust)}
+.price span{font-size:.82rem;font-weight:500;color:var(--soft)}
+.order{background:var(--butter)}
+.order .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.order form{background:#fff;border-radius:22px;padding:28px;display:grid;gap:14px;box-shadow:0 20px 50px -30px rgba(74,42,18,.6)}
+.order label{font-weight:700;font-size:.9rem;display:grid;gap:6px}
+.order input,.order select{font:inherit;padding:12px 14px;border-radius:12px;border:1.5px solid #E6D6BE;background:var(--flour)}
+.qty{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #F0E4D2}
+.qty input{width:70px;text-align:center}
+.steps{list-style:none;display:grid;gap:14px;margin-top:24px}
+.steps li{display:flex;gap:14px;align-items:flex-start}
+.steps li b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--crust-d);color:#fff;display:grid;place-items:center}
+.story .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.story .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.story .pics img{border-radius:18px;aspect-ratio:3/4;object-fit:cover}
+.story .pics img:last-child{margin-top:40px}
+.visit{background:var(--crust-d);color:var(--butter)}
+.visit h2{color:#fff}
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.hours{width:100%;border-collapse:collapse;margin-top:16px}
+.hours td{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.hours td:last-child{text-align:right;color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+.hours tr.closed td:last-child{color:var(--wheat);font-weight:500}
+.map{border-radius:20px;min-height:300px;position:relative;overflow:hidden;background:#EADCC6}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:50%;top:46%;transform:translate(-50%,-100%);background:var(--crust-d);color:#fff;padding:8px 14px;border-radius:12px;font-weight:700;font-size:.9rem;white-space:nowrap;box-shadow:0 10px 20px rgba(0,0,0,.25)}
+.pin::after{content:"";position:absolute;left:50%;bottom:-8px;border:8px solid transparent;border-top-color:var(--crust-d);border-bottom:0;transform:translateX(-50%)}
+footer{background:#2B1A0E;color:#BFA88E;padding:30px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:860px){
+  .menu{display:none}
+  .strip .wrap,.products,.order .wrap,.story .wrap,.visit .wrap{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+<div class="kc-demo"><span><b>Site de démonstration</b> conçu par KajiCom</span><a class="back" href="../index.html#realisations">← Retour</a><a href="../index.html#contact">Je veux un site comme ça</a></div>
+
+<div class="herozone" style="position:relative">
+<header class="top"><div class="wrap">
+  <a class="brand" href="#">Maison Lebrun<small>Boulanger · Pâtissier</small></a>
+  <nav class="menu"><a href="#produits">Nos produits</a><a href="#commande">Commander</a><a href="#histoire">Notre histoire</a><a href="#venir">Nous trouver</a></nav>
+  <a class="btn main" href="#commande">Commander</a>
+</div></header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Le bon pain, <em>chaque matin</em> depuis 1987.</h1>
+    <p>Levain naturel, farines de la région et viennoiseries pur beurre, façonnés à la main dans notre fournil chaque nuit.</p>
+    <div class="ctas"><a class="btn main" href="#commande">Commander pour demain</a><a class="btn line" href="#produits">Voir nos produits</a></div>
+  </div>
+</section>
+</div>
+
+<div class="strip"><div class="wrap">
+  <div><b>Ouvert du mardi au dimanche</b>6 h 30 – 19 h 30</div>
+  <div><b>12 place du Marché</b>Parking gratuit à 50 m</div>
+  <div><b>03 23 00 00 00</b>Commandes pour vos événements</div>
+</div></div>
+
+<section id="produits"><div class="wrap">
+  <span class="kicker">Nos produits</span>
+  <h2>Faits ici, cuits ce matin.</h2>
+  <p class="lead">Une sélection qui change avec les saisons. Tout est préparé sur place, du pétrissage à la cuisson.</p>
+  <div class="products">
+    <article class="product reveal"><img src="../assets/photos/boulangerie-pain.jpg" alt="Pains de campagne au levain" loading="lazy"><div class="in"><h3>Pain de campagne au levain</h3><p>Croûte épaisse, mie alvéolée, se garde 4 jours.</p><div class="price">3,40 € <span>les 500 g</span></div></div></article>
+    <article class="product reveal"><img src="../assets/photos/boulangerie-croissants.jpg" alt="Croissants pur beurre" loading="lazy"><div class="in"><h3>Croissant pur beurre</h3><p>Beurre AOP Charentes-Poitou, feuilletage maison.</p><div class="price">1,20 € <span>pièce</span></div></div></article>
+    <article class="product reveal"><img src="../assets/photos/boulangerie-gateau.jpg" alt="Gâteau aux framboises" loading="lazy"><div class="in"><h3>Fraisier de saison</h3><p>Génoise légère, crème mousseline vanille.</p><div class="price">dès 18 € <span>4 à 8 parts</span></div></div></article>
+  </div>
+</div></section>
+
+<section class="order" id="commande"><div class="wrap">
+  <div class="reveal">
+    <span class="kicker">Click &amp; collect</span>
+    <h2>Commandez ce soir, récupérez demain.</h2>
+    <p class="lead">Plus besoin de faire la queue le dimanche : votre commande vous attend au comptoir, emballée et payée.</p>
+    <ul class="steps">
+      <li><b>1</b><span>Choisissez vos produits et l'heure de passage.</span></li>
+      <li><b>2</b><span>Payez en ligne ou sur place, comme vous préférez.</span></li>
+      <li><b>3</b><span>Passez devant tout le monde et repartez avec votre pain chaud.</span></li>
+    </ul>
+  </div>
+  <form class="reveal" data-demo="Site de démonstration : sur votre vrai site, la commande vous serait envoyée et le client recevrait une confirmation.">
+    <div class="qty"><span>Baguette tradition · 1,30 €</span><input type="number" min="0" value="2" aria-label="Quantité baguettes"></div>
+    <div class="qty"><span>Croissant pur beurre · 1,20 €</span><input type="number" min="0" value="4" aria-label="Quantité croissants"></div>
+    <div class="qty"><span>Pain au chocolat · 1,30 €</span><input type="number" min="0" value="0" aria-label="Quantité pains au chocolat"></div>
+    <label>Heure de passage<select><option>Demain, 7 h – 8 h</option><option>Demain, 8 h – 9 h</option><option>Demain, 9 h – 10 h</option></select></label>
+    <label>Votre prénom<input placeholder="Ex. Camille"></label>
+    <button class="btn dark" type="submit">Valider ma commande</button>
+  </form>
+</div></section>
+
+<section class="story" id="histoire"><div class="wrap">
+  <div class="pics reveal"><img src="../assets/photos/boulangerie-vitrine.jpg" alt="Vitrine de la boulangerie" loading="lazy"><img src="../assets/photos/boulangerie-pain.jpg" alt="Pains sortis du four" loading="lazy"></div>
+  <div class="reveal">
+    <span class="kicker">Notre histoire</span>
+    <h2>Trois générations de boulangers.</h2>
+    <p class="lead">Jean a ouvert le fournil en 1987. Aujourd'hui, c'est sa petite-fille Clara qui pétrit chaque nuit avec le même levain, nourri depuis plus de trente ans.</p>
+    <p class="lead" style="margin-top:14px">Nos farines viennent d'un moulin à moins de 40 km. Nos œufs et notre lait, d'une ferme voisine.</p>
+  </div>
+</div></section>
+
+<section class="visit" id="venir"><div class="wrap">
+  <div class="reveal">
+    <span class="kicker" style="color:var(--wheat)">Nous trouver</span>
+    <h2>Passez nous voir.</h2>
+    <table class="hours">
+      <tr><td>Mardi – Vendredi</td><td>6 h 30 – 19 h 30</td></tr>
+      <tr><td>Samedi</td><td>6 h 30 – 19 h 00</td></tr>
+      <tr><td>Dimanche</td><td>7 h 00 – 13 h 00</td></tr>
+      <tr class="closed"><td>Lundi</td><td>Fermé</td></tr>
+    </table>
+    <p style="margin-top:20px">12 place du Marché · 03 23 00 00 00</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px"><a class="btn main" href="#venir">Itinéraire</a><a class="btn line" href="#venir">Appeler</a></div>
+  </div>
+  <div class="map reveal" aria-label="Plan d'accès">
+    <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="300" fill="#EADCC6"/><path d="M0 120 H400 M0 220 H400 M90 0 V300 M250 0 V300 M330 0 L180 300" stroke="#fff" stroke-width="14"/><path d="M0 60 Q120 90 200 40 T400 70" stroke="#C9E3D2" stroke-width="18" fill="none"/><rect x="110" y="140" width="120" height="64" rx="6" fill="#DCC9AC"/><rect x="270" y="20" width="50" height="80" rx="6" fill="#DCC9AC"/></svg>
+    <span class="pin">Maison Lebrun</span>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><span>© Maison Lebrun · Boulangerie artisanale</span><span>Mentions légales · Allergènes</span></div></footer>
+<script src="demo.js"></script>
+</body>
+</html>

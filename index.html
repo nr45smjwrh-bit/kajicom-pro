@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KajiCom · Création de sites internet pour les professionnels</title>
+<meta name="description" content="KajiCom crée des sites internet, boutiques en ligne et applications pour les commerçants, artisans, restaurants et indépendants. Devis gratuit sous 24 h.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="assets/kajicom-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Mise en page : colonne centrée de 1160 px, sections alternant blanc et sable */
+:root{
+  --ink:#0F1B2D; --soft:#556274; --bg:#FFFFFF; --sand:#F6F3EE; --line:#E6E1D9;
+  --accent:#F2643D; --accent-d:#D24A24; --navy:#14284B; --ok:#1E9E6A;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.65 var(--font);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{line-height:1.12;letter-spacing:-.025em;text-wrap:balance}
+h1{font-size:clamp(2.3rem,5.2vw,3.9rem);font-weight:800}
+h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:700}
+p{text-wrap:pretty}
+.wrap{width:min(1160px,100% - 32px);margin-inline:auto}
+section{padding:96px 0}
+.sand{background:var(--sand)}
+.kicker{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-d);margin-bottom:12px}
+.head{max-width:680px;margin-bottom:48px}
+.head p{color:var(--soft);font-size:1.08rem;margin-top:14px}
+.center{text-align:center;margin-inline:auto}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:12px;font:700 1rem var(--font);text-decoration:none;border:0;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px rgba(242,100,61,.7)}
+.btn.primary:hover{background:var(--accent-d)}
+.btn.secondary{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.btn.secondary:hover{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn.small{padding:11px 18px;font-size:.95rem}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:74px}
+.nav .logo img{height:44px;width:auto}
+.nav .links{display:flex;gap:30px;font-weight:600;font-size:.95rem}
+.nav .links a{text-decoration:none;color:var(--soft);transition:color .2s}
+.nav .links a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding:70px 0 90px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+.hero .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--sand);font-weight:600;font-size:.88rem;margin-bottom:22px}
+.hero .pill i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.hero h1 span{color:var(--accent-d)}
+.hero .lead{font-size:1.16rem;color:var(--soft);margin:20px 0 32px;max-width:540px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.checks{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:30px;font-weight:600;font-size:.93rem;color:var(--soft)}
+.checks span{display:flex;align-items:center;gap:8px}
+.checks svg{flex:none}
+.hero-visual{position:relative}
+.hero-visual .photo{border-radius:24px;overflow:hidden;aspect-ratio:4/3.4;box-shadow:0 40px 80px -40px rgba(15,27,45,.45)}
+.hero-visual .photo img{width:100%;height:100%;object-fit:cover}
+.float{position:absolute;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 20px 40px -16px rgba(15,27,45,.35);display:flex;gap:12px;align-items:center;font-size:.9rem;animation:float 6s ease-in-out infinite}
+.float b{display:block;font-size:.95rem}
+.float small{color:var(--soft)}
+.float .ic{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;flex:none}
+.float.a{left:-28px;bottom:36px}
+.float.b{right:-20px;top:28px;animation-delay:-3s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+/* pour qui */
+.who{padding:34px 0;border-block:1px solid var(--line)}
+.who .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}
+.who p{font-weight:700;color:var(--soft);font-size:.92rem}
+.who ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.who li{padding:9px 16px;border-radius:999px;background:var(--sand);font-weight:600;font-size:.93rem}
+
+/* réalisations */
+.works{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.work{display:block;text-decoration:none;color:inherit;border-radius:22px;background:#fff;border:1px solid var(--line);overflow:hidden;transition:transform .3s,box-shadow .3s}
+.work:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(15,27,45,.4)}
+.work .shot{position:relative;background:var(--sand);padding:18px 18px 0}
+.work .frame{border-radius:12px 12px 0 0;overflow:hidden;background:#fff;box-shadow:0 10px 30px -14px rgba(15,27,45,.35)}
+.work .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#EEF0F3}
+.work .bar i{width:9px;height:9px;border-radius:50%;background:#D5D9DF}
+.work .bar span{margin-left:10px;font-size:.75rem;color:var(--soft);background:#fff;border-radius:6px;padding:2px 10px;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.work .frame img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top;transition:object-position 3s ease}
+.work:hover .frame img{object-position:bottom}
+.work .tag{position:absolute;top:30px;right:30px;padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:700;background:var(--ink);color:#fff}
+.work .tag.real{background:var(--ok)}
+.work .info{padding:22px 24px 26px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end}
+.work .info h3{font-size:1.25rem}
+.work .info p{color:var(--soft);font-size:.95rem;margin-top:4px}
+.work .feat{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.work .feat span{font-size:.78rem;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--sand)}
+.work .go{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--sand);transition:background .2s,transform .2s}
+.work:hover .go{background:var(--accent);color:#fff;transform:rotate(-45deg)}
+.work.wide{grid-column:1/-1;display:grid;grid-template-columns:1.25fr 1fr}
+.work.wide .shot{padding:24px 0 0 24px}
+.work.wide .frame{border-radius:12px 0 0 0}
+.work.wide .info{flex-direction:column;align-items:flex-start;justify-content:center;padding:36px}
+.work.wide .info h3{font-size:1.6rem}
+.quote-real{margin-top:14px;padding-left:14px;border-left:3px solid var(--ok);color:var(--soft);font-size:.95rem}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{padding:30px;border-radius:var(--r);background:#fff;border:1px solid var(--line)}
+.svc .ic{width:50px;height:50px;border-radius:14px;background:#FDEDE7;display:grid;place-items:center;margin-bottom:20px}
+.svc p{color:var(--soft);margin-top:8px;font-size:.98rem}
+.svc ul{list-style:none;margin-top:16px;display:grid;gap:8px;font-size:.94rem}
+.svc li{display:flex;gap:10px}
+.svc li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:50%;background:#E3F4EC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.6 2.5L13 6.5' fill='none' stroke='%231E9E6A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+/* méthode */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{position:relative;padding-top:20px}
+.step::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--ink);color:#fff;font-weight:800;margin-bottom:18px}
+.step::after{content:"";position:absolute;top:42px;left:56px;right:-10px;height:2px;background:var(--line)}
+.step:last-child::after{display:none}
+.step p{color:var(--soft);font-size:.96rem;margin-top:6px}
+.step small{display:inline-block;margin-top:10px;font-weight:700;font-size:.8rem;color:var(--accent-d)}
+
+/* offres */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
+.plan{display:flex;flex-direction:column;padding:32px 28px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+.plan.best{border:2px solid var(--accent);box-shadow:0 30px 60px -36px rgba(242,100,61,.6);position:relative}
+.plan.best .ribbon{position:absolute;top:-13px;left:28px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;padding:4px 12px;border-radius:999px}
+.plan .for{color:var(--soft);font-size:.95rem;margin:6px 0 22px;min-height:3em}
+.plan .price{font-size:2.6rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.plan .price small{font-size:1rem;font-weight:600;color:var(--soft);letter-spacing:0}
+.plan .alt{font-size:.9rem;color:var(--soft);margin:8px 0 24px}
+.plan .alt b{color:var(--ink)}
+.plan ul{list-style:none;display:grid;gap:10px;margin-bottom:28px;flex:1;font-size:.96rem}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:4px;border-radius:50%;background:#E3F4EC url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.6 2.5L13 6.5' fill='none' stroke='%231E9E6A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.extra{padding:22px 24px;border-radius:var(--r);background:var(--sand);display:flex;justify-content:space-between;gap:16px;align-items:center}
+.extra b{display:block}
+.extra span{color:var(--soft);font-size:.92rem}
+.extra strong{white-space:nowrap;font-size:1.05rem}
+.fine{color:var(--soft);font-size:.86rem;margin-top:18px;text-align:center}
+
+/* engagements */
+.promises{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.promise h3{font-size:1.05rem;margin-top:14px}
+.promise p{color:var(--soft);font-size:.95rem;margin-top:6px}
+.promise .ic{width:46px;height:46px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center}
+
+/* équipe */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.team img{border-radius:24px;aspect-ratio:4/3;object-fit:cover;width:100%}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.duo div{padding:20px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.duo b{display:block;font-size:1.1rem}
+.duo span{color:var(--accent-d);font-weight:700;font-size:.85rem}
+.duo p{color:var(--soft);font-size:.93rem;margin-top:6px}
+
+/* FAQ */
+.faq{max-width:820px;margin:0 auto;display:grid;gap:12px}
+.faq details{border:1px solid var(--line);border-radius:16px;background:#fff;padding:0 24px}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;font-weight:500;color:var(--accent-d);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--soft);padding-bottom:20px}
+
+/* contact */
+.contact{background:var(--navy);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.contact .kicker{color:#FFB59E}
+.contact .intro p{color:#C6D1E3;margin-top:14px;font-size:1.08rem}
+.contact ul{list-style:none;display:grid;gap:14px;margin-top:28px}
+.contact li{display:flex;gap:12px;align-items:center;color:#E3E9F3}
+.contact li i{flex:none;width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.1);display:grid;place-items:center;font-style:normal}
+.mail{margin-top:30px;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.07);font-size:.95rem;color:#C6D1E3}
+.mail b{display:block;color:#fff;font-size:1.05rem;user-select:all;word-break:break-all}
+form.lead{background:#fff;color:var(--ink);border-radius:22px;padding:32px;position:relative}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-weight:700;font-size:.88rem}
+.field input,.field select,.field textarea{font:400 1rem var(--font);color:var(--ink);padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#FBFAF8;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);background:#fff;outline:none;box-shadow:0 0 0 4px rgba(242,100,61,.15)}
+.field textarea{min-height:110px;resize:vertical}
+form.lead .btn{width:100%}
+.err{color:var(--accent-d);font-weight:700;font-size:.9rem;min-height:1.2em;margin-bottom:8px}
+.note{font-size:.82rem;color:var(--soft);margin-top:12px;text-align:center}
+.done{position:absolute;inset:0;border-radius:22px;background:#fff;padding:32px;display:flex;flex-direction:column;justify-content:center;gap:12px;overflow:auto}
+.done[hidden]{display:none}
+.done h3{font-size:1.5rem}
+.done p{color:var(--soft)}
+.done pre{white-space:pre-wrap;word-break:break-word;font:400 .9rem/1.5 var(--font);background:var(--sand);border-radius:12px;padding:14px;max-height:180px;overflow:auto}
+.done .row{display:flex;flex-wrap:wrap;gap:10px}
+.done .row .btn{width:auto;flex:1}
+.linkbtn{background:none;border:0;color:var(--soft);font:600 .9rem var(--font);text-decoration:underline;cursor:pointer;align-self:flex-start}
+
+footer{padding:40px 0;color:var(--soft);font-size:.92rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+footer img{height:36px;width:auto}
+footer nav{display:flex;flex-wrap:wrap;gap:20px}
+footer a{text-decoration:none}
+
+/* apparition douce */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .nav .links{display:none}
+  .hero .wrap,.team,.contact .wrap{grid-template-columns:1fr}
+  .hero-visual{max-width:560px}
+  .works{grid-template-columns:1fr}
+  .work.wide{grid-template-columns:1fr}
+  .work.wide .shot{padding:18px 18px 0}.work.wide .frame{border-radius:12px 12px 0 0}
+  .services,.plans,.extras{grid-template-columns:1fr}
+  .steps,.promises{grid-template-columns:1fr 1fr}
+  .step::after{display:none}
+  section{padding:72px 0}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .steps,.promises,.grid2,.duo{grid-template-columns:1fr}
+  .float.a{left:8px;bottom:12px}.float.b{right:8px;top:12px}
+  .float{padding:10px 12px;font-size:.82rem}
+  form.lead{padding:22px 18px}
+  .nav .wrap{height:64px}.nav .logo img{height:38px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .js .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav"><div class="wrap">
+  <a class="logo" href="#top" aria-label="KajiCom, accueil"><img src="assets/kajicom-logo.png" alt="KajiCom" width="77" height="44"></a>
+  <nav class="links" aria-label="Menu principal">
+    <a href="#realisations">Réalisations</a><a href="#services">Services</a><a href="#offres">Tarifs</a><a href="#methode">Méthode</a><a href="#faq">Questions</a>
+  </nav>
+  <a class="btn primary small" href="#contact">Devis gratuit</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <span class="pill"><i></i>Devis gratuit · réponse sous 24 h</span>
+    <h1>Votre site internet professionnel, <span>simplement.</span></h1>
+    <p class="lead">Commerçants, artisans, restaurants, indépendants : nous créons votre site, votre boutique en ligne ou votre application. Vous nous parlez de votre activité, on s'occupe de tout le reste.</p>
+    <div class="ctas"><a class="btn primary" href="#contact">Demander un devis gratuit</a><a class="btn secondary" href="#realisations">Voir nos réalisations</a></div>
+    <div class="checks">
+      <span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#E3F4EC"/><path d="M5 9.5l2.6 2.5L13 6.5" fill="none" stroke="#1E9E6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>En ligne en 2 semaines</span>
+      <span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#E3F4EC"/><path d="M5 9.5l2.6 2.5L13 6.5" fill="none" stroke="#1E9E6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Prix fixé à l'avance</span>
+      <span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="#E3F4EC"/><path d="M5 9.5l2.6 2.5L13 6.5" fill="none" stroke="#1E9E6A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Paiement en 3 fois</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="photo"><img src="assets/photos/equipe.jpg" alt="Deux personnes célèbrent la mise en ligne d'un site devant un ordinateur" width="1400" height="934"></div>
+    <div class="float a"><span class="ic" style="background:#E3F4EC"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1E9E6A" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg></span><span><b>Site mis en ligne</b><small>visible sur Google et mobile</small></span></div>
+    <div class="float b"><span class="ic" style="background:#FDEDE7"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg></span><span><b>Nouvelle demande client</b><small>reçue à l'instant</small></span></div>
+  </div>
+</div></section>
+
+<div class="who"><div class="wrap">
+  <p>Nous travaillons avec</p>
+  <ul><li>Commerces</li><li>Artisans du bâtiment</li><li>Restaurants &amp; cafés</li><li>Beauté &amp; bien-être</li><li>Professions libérales</li><li>Associations</li></ul>
+</div></div>
+
+<section id="realisations"><div class="wrap">
+  <div class="head">
+    <span class="kicker">Réalisations</span>
+    <h2>Des sites concrets, que vous pouvez tester.</h2>
+    <p>Des sites complets que nous avons conçus pour différents métiers. Ouvrez-les, testez-les sur votre téléphone : c'est exactement le niveau de qualité que vous recevrez.</p>
+  </div>
+  <div class="works">
+    <a class="work reveal" href="exemples/boulangerie.html">
+      <div class="shot"><span class="tag">Exemple</span><div class="frame"><div class="bar"><i></i><i></i><i></i><span>maison-lebrun.fr</span></div><img src="assets/apercus/boulangerie.jpg" alt="Aperçu du site de la boulangerie Maison Lebrun" loading="lazy" width="1280" height="800"></div></div>
+      <div class="info"><div><h3>Boulangerie artisanale</h3><p>Vitrine, produits et commande à emporter.</p><div class="feat"><span>Click &amp; collect</span><span>Horaires</span><span>Plan d'accès</span></div></div><span class="go" aria-hidden="true">→</span></div>
+    </a>
+    <a class="work reveal" href="exemples/restaurant.html">
+      <div class="shot"><span class="tag">Exemple</span><div class="frame"><div class="bar"><i></i><i></i><i></i><span>comptoir-des-halles.fr</span></div><img src="assets/apercus/restaurant.jpg" alt="Aperçu du site du restaurant Le Comptoir des Halles" loading="lazy" width="1280" height="800"></div></div>
+      <div class="info"><div><h3>Restaurant bistrot</h3><p>Carte de la semaine et réservation de table.</p><div class="feat"><span>Réservation</span><span>Menu</span><span>Galerie</span></div></div><span class="go" aria-hidden="true">→</span></div>
+    </a>
+    <a class="work reveal" href="exemples/coiffure.html">
+      <div class="shot"><span class="tag">Exemple</span><div class="frame"><div class="bar"><i></i><i></i><i></i><span>atelier-meche.fr</span></div><img src="assets/apercus/coiffure.jpg" alt="Aperçu du site du salon Atelier Mèche" loading="lazy" width="1280" height="800"></div></div>
+      <div class="info"><div><h3>Salon de coiffure</h3><p>Tarifs affichés et prise de rendez-vous en ligne.</p><div class="feat"><span>Rendez-vous</span><span>Tarifs</span><span>Rappels SMS</span></div></div><span class="go" aria-hidden="true">→</span></div>
+    </a>
+    <a class="work reveal" href="exemples/plombier.html">
+      <div class="shot"><span class="tag">Exemple</span><div class="frame"><div class="bar"><i></i><i></i><i></i><span>dumas-plomberie.fr</span></div><img src="assets/apercus/plombier.jpg" alt="Aperçu du site de Dumas Plomberie" loading="lazy" width="1280" height="800"></div></div>
+      <div class="info"><div><h3>Artisan plombier</h3><p>Demande de devis, urgences et zone d'intervention.</p><div class="feat"><span>Devis rapide</span><span>Appel en 1 clic</span><span>Services</span></div></div><span class="go" aria-hidden="true">→</span></div>
+    </a>
+  </div>
+</div></section>
+
+<section class="sand" id="services"><div class="wrap">
+  <div class="head">
+    <span class="kicker">Services</span>
+    <h2>Ce que nous faisons pour vous.</h2>
+    <p>Une seule équipe pour votre présence en ligne, de la première page à la mise à jour de vos horaires.</p>
+  </div>
+  <div class="services">
+    <article class="svc reveal">
+      <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M8 21h8"/></svg></div>
+      <h3>Site vitrine</h3>
+      <p>Présentez votre activité, vos services et vos horaires, avec un site rapide et beau sur téléphone.</p>
+      <ul><li>Design à votre image</li><li>Formulaire de contact</li><li>Fiche Google Maps</li></ul>
+    </article>
+    <article class="svc reveal">
+      <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2" stroke-linecap="round"><path d="M5 8h14l-1.5 11h-11z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+      <h3>Boutique en ligne</h3>
+      <p>Vendez vos produits en ligne, en livraison ou en retrait sur place, avec paiement sécurisé.</p>
+      <ul><li>Paiement par carte</li><li>Click &amp; collect</li><li>Gestion des commandes</li></ul>
+    </article>
+    <article class="svc reveal">
+      <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2" stroke-linecap="round"><rect x="7" y="2" width="10" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+      <h3>Application mobile</h3>
+      <p>Réservation, fidélité ou commande : une application à votre nom, sur iPhone et Android.</p>
+      <ul><li>Sur mesure</li><li>Notifications</li><li>Publication sur les stores</li></ul>
+    </article>
+    <article class="svc reveal">
+      <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div>
+      <h3>Visibilité sur Google</h3>
+      <p>On optimise votre site et votre fiche Google pour que les gens de votre secteur vous trouvent.</p>
+      <ul><li>Référencement local</li><li>Avis clients</li><li>Statistiques de visites</li></ul>
+    </article>
+    <article class="svc reveal">
+      <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div>
+      <h3>Hébergement &amp; maintenance</h3>
+      <p>Hébergement, sécurité et sauvegardes inclus. Vous voulez changer un texte ? Un message suffit.</p>
+      <ul><li>Mises à jour incluses</li><li>Site sécurisé (HTTPS)</li><li>Support réactif</li></ul>
+    </article>
+    <article class="svc reveal">
+      <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#D24A24" stroke-width="2" stroke-linecap="round"><path d="M4 20l4-1L19 8l-3-3L5 16z"/><path d="M14 6l3 3"/></svg></div>
+      <h3>Refonte de site</h3>
+      <p>Votre site actuel est daté ou lent ? On le modernise en gardant ce qui fonctionne.</p>
+      <ul><li>Nouveau design</li><li>Plus rapide</li><li>Contenu repris</li></ul>
+    </article>
+  </div>
+</div></section>
+
+<section id="methode"><div class="wrap">
+  <div class="head">
+    <span class="kicker">Méthode</span>
+    <h2>Quatre étapes, aucune complication.</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><h3>On fait connaissance</h3><p>Un rendez-vous, chez vous ou par téléphone, pour comprendre votre activité et vos besoins.</p><small>Gratuit</small></div>
+    <div class="step reveal"><h3>Vous recevez un devis</h3><p>Un prix fixe et un délai précis, sous 24 h. Rien ne commence sans votre accord.</p><small>Sous 24 h</small></div>
+    <div class="step reveal"><h3>On crée votre site</h3><p>Vous voyez l'avancement et demandez les modifications que vous voulez.</p><small>1 à 3 semaines</small></div>
+    <div class="step reveal"><h3>Mise en ligne</h3><p>Votre site est publié, référencé sur Google, et nous restons là pour la suite.</p><small>Suivi inclus</small></div>
+  </div>
+</div></section>
+
+<section class="sand" id="offres"><div class="wrap">
+  <div class="head center" style="text-align:center">
+    <span class="kicker">Tarifs</span>
+    <h2>Des prix clairs, sans surprise.</h2>
+    <p>Payez en une fois (en 3 fois sans frais si vous le souhaitez) ou choisissez la formule mensuelle tout compris.</p>
+  </div>
+  <div class="plans">
+    <article class="plan reveal">
+      <h3>Essentiel</h3>
+      <p class="for">Une page claire pour être trouvé et contacté.</p>
+      <div class="price">690 € <small>HT</small></div>
+      <p class="alt">ou <b>39 €/mois</b> tout compris</p>
+      <ul><li>Site d'une page</li><li>Adapté au téléphone</li><li>Horaires, plan, contact</li><li>Fiche Google Maps</li></ul>
+      <a class="btn secondary" href="#contact" data-plan="Essentiel">Choisir Essentiel</a>
+    </article>
+    <article class="plan best reveal">
+      <span class="ribbon">Le plus demandé</span>
+      <h3>Professionnel</h3>
+      <p class="for">Le site complet pour présenter votre activité et attirer des clients.</p>
+      <div class="price">1 290 € <small>HT</small></div>
+      <p class="alt">ou <b>69 €/mois</b> tout compris</p>
+      <ul><li>Jusqu'à 6 pages</li><li>Référencement local</li><li>Formulaire et réservation simple</li><li>Galerie photos et avis Google</li><li>Statistiques de visites</li></ul>
+      <a class="btn primary" href="#contact" data-plan="Professionnel">Choisir Professionnel</a>
+    </article>
+    <article class="plan reveal">
+      <h3>Boutique en ligne</h3>
+      <p class="for">Pour vendre vos produits en ligne, en livraison ou à emporter.</p>
+      <div class="price">2 490 € <small>HT</small></div>
+      <p class="alt">ou <b>129 €/mois</b> tout compris</p>
+      <ul><li>Tout le Professionnel</li><li>Jusqu'à 50 produits</li><li>Paiement par carte</li><li>Click &amp; collect / livraison</li><li>Formation incluse</li></ul>
+      <a class="btn secondary" href="#contact" data-plan="Boutique en ligne">Choisir Boutique</a>
+    </article>
+  </div>
+  <div class="extras">
+    <div class="extra reveal"><div><b>Application mobile</b><span>iPhone et Android, sur mesure</span></div><strong>dès 4 900 €</strong></div>
+    <div class="extra reveal"><div><b>Maintenance</b><span>hébergement, sécurité, modifications</span></div><strong>dès 29 €/mois</strong></div>
+    <div class="extra reveal"><div><b>Refonte de site</b><span>modernisation d'un site existant</span></div><strong>dès 590 €</strong></div>
+  </div>
+  <p class="fine">Formule mensuelle : engagement de 24 mois, hébergement et maintenance inclus. Le prix définitif figure sur votre devis.</p>
+</div></section>
+
+<section id="equipe"><div class="wrap team">
+  <img class="reveal" src="assets/photos/equipe.jpg" alt="Travail d'équipe autour d'un ordinateur" loading="lazy" width="1400" height="934">
+  <div class="reveal">
+    <span class="kicker">Qui sommes-nous</span>
+    <h2>Deux interlocuteurs, du premier rendez-vous au suivi.</h2>
+    <p style="color:var(--soft);margin-top:14px">Pas de standard ni de sous-traitance : vous parlez toujours aux personnes qui s'occupent de votre projet.</p>
+    <div class="duo">
+      <div><span>Conseil &amp; suivi</span><b>Julien</b><p>Vous rencontre, comprend votre besoin et reste votre contact.</p></div>
+      <div><span>Conception &amp; technique</span><b>Krys</b><p>Conçoit et développe votre site, jusqu'au moindre détail.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sand"><div class="wrap">
+  <div class="promises">
+    <div class="promise reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/></svg></div><h3>Prix fixe</h3><p>Le prix du devis est le prix payé.</p></div>
+    <div class="promise reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M16 7l3 3"/></svg></div><h3>Vous êtes propriétaire</h3><p>Votre site et votre nom de domaine sont à vous.</p></div>
+    <div class="promise reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 0 1 14-5l2-2v6h-6l2-2a5 5 0 1 0 1 6"/></svg></div><h3>Retouches incluses</h3><p>On ajuste jusqu'à ce que le résultat vous convienne.</p></div>
+    <div class="promise reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F1B2D" stroke-width="2" stroke-linecap="round"><path d="M4 5h16v11H8l-4 4z"/></svg></div><h3>Réponse rapide</h3><p>Un message, une réponse dans la journée.</p></div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="head center" style="text-align:center"><span class="kicker">Questions</span><h2>Les questions qu'on nous pose souvent.</h2></div>
+  <div class="faq">
+    <details class="reveal"><summary>Je n'y connais rien en informatique. C'est un problème ?</summary><p>Non. Vous nous parlez de votre activité avec vos mots, nous nous occupons de toute la partie technique et nous vous expliquons simplement chaque étape.</p></details>
+    <details class="reveal"><summary>Combien de temps faut-il pour avoir mon site ?</summary><p>Une à deux semaines pour un site vitrine, trois à quatre semaines pour une boutique en ligne, une fois vos textes et photos réunis. Le délai exact est indiqué sur le devis.</p></details>
+    <details class="reveal"><summary>Est-ce que je pourrai modifier mon site moi-même ?</summary><p>Oui, si vous le souhaitez, nous vous formons. Sinon, avec la maintenance, vous nous envoyez un message et nous faisons la modification pour vous.</p></details>
+    <details class="reveal"><summary>Je n'ai pas de photos ni de logo.</summary><p>Nous pouvons créer votre logo, organiser une séance photo dans votre commerce ou utiliser des images libres de droits adaptées à votre métier.</p></details>
+    <details class="reveal"><summary>Que se passe-t-il si j'arrête la maintenance ?</summary><p>La maintenance est sans engagement. Votre site et votre nom de domaine restent à vous : nous vous transmettons tout le nécessaire.</p></details>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <div class="intro">
+    <span class="kicker">Contact</span>
+    <h2>Parlons de votre projet.</h2>
+    <p>Laissez-nous quelques informations : nous vous rappelons sous 24 h pour en discuter, gratuitement et sans engagement.</p>
+    <ul>
+      <li><i>✓</i>Devis gratuit et détaillé</li>
+      <li><i>✓</i>Rendez-vous sur place ou par téléphone</li>
+      <li><i>✓</i>Aucun engagement</li>
+    </ul>
+    <div class="mail">Vous préférez écrire directement ?<b id="mailText">christopher.vollereaux@gmail.com</b></div>
+  </div>
+  <form class="lead" id="leadForm" novalidate>
+    <div class="grid2">
+      <div class="field"><label for="f-name">Nom et prénom *</label><input id="f-name" name="nom" autocomplete="name" required></div>
+      <div class="field"><label for="f-company">Entreprise *</label><input id="f-company" name="entreprise" autocomplete="organization" required></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="f-email">Email *</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-phone">Téléphone</label><input id="f-phone" name="telephone" type="tel" autocomplete="tel"></div>
+    </div>
+    <div class="grid2">
+      <div class="field"><label for="f-type">Votre activité</label><select id="f-type" name="activite"><option value="">Choisir…</option><option>Commerce</option><option>Restaurant / café</option><option>Artisan / bâtiment</option><option>Beauté / bien-être</option><option>Profession libérale</option><option>Association</option><option>Autre</option></select></div>
+      <div class="field"><label for="f-need">Votre besoin</label><select id="f-need" name="besoin"><option value="">Choisir…</option><option>Site vitrine</option><option>Boutique en ligne</option><option>Application mobile</option><option>Refonte de mon site</option><option>Je ne sais pas encore</option></select></div>
+    </div>
+    <div class="field"><label for="f-msg">Votre projet en quelques mots</label><textarea id="f-msg" name="message"></textarea></div>
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn primary" type="submit">Envoyer ma demande</button>
+    <p class="note">Vos informations servent uniquement à vous recontacter.</p>
+    <div class="done" id="done" hidden>
+      <h3>Merci <span id="okName"></span> !</h3>
+      <p>Votre demande est prête. Envoyez-la par email et nous vous recontactons sous 24 h.</p>
+      <pre id="okText"></pre>
+      <div class="row"><a class="btn primary" id="mailBtn" href="#">Envoyer par email</a><button class="btn secondary" type="button" id="copyBtn">Copier</button></div>
+      <button class="linkbtn" type="button" id="backBtn">← Modifier ma demande</button>
+    </div>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <img src="assets/kajicom-logo.png" alt="KajiCom" width="63" height="36">
+  <nav><a href="#realisations">Réalisations</a><a href="#offres">Tarifs</a><a href="#contact">Contact</a></nav>
+  <span>© <span id="yr"></span> KajiCom · Création de sites internet</span>
+</div></footer>
+
+<script>
+const CONTACT_EMAIL = "christopher.vollereaux@gmail.com";
+document.getElementById('yr').textContent = new Date().getFullYear();
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), { passive: true });
+
+/* apparition douce */
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  document.documentElement.classList.add('js');
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 3) * 80 + 'ms'; io.observe(el); });
+}
+
+/* choisir une offre : pré-remplit le formulaire */
+document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('f-msg').value = `Je suis intéressé(e) par l'offre « ${a.dataset.plan} ». `;
+  const need = document.getElementById('f-need');
+  need.value = a.dataset.plan === 'Boutique en ligne' ? 'Boutique en ligne' : 'Site vitrine';
+}));
+
+/* formulaire : prépare l'email de demande */
+const form = document.getElementById('leadForm'), err = document.getElementById('err'), done = document.getElementById('done');
+form.addEventListener('submit', e => {
+  e.preventDefault(); err.textContent = '';
+  const d = Object.fromEntries(new FormData(form));
+  if (!d.nom.trim() || !d.entreprise.trim()) { err.textContent = 'Indiquez votre nom et celui de votre entreprise.'; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { err.textContent = 'Vérifiez votre adresse email : elle semble incomplète.'; document.getElementById('f-email').focus(); return; }
+  const labels = { nom: 'Nom', entreprise: 'Entreprise', email: 'Email', telephone: 'Téléphone', activite: 'Activité', besoin: 'Besoin', message: 'Message' };
+  const body = Object.entries(d).filter(([, v]) => String(v).trim()).map(([k, v]) => `${labels[k] || k} : ${v}`).join('\n');
+  document.getElementById('okName').textContent = d.nom.trim().split(' ')[0];
+  document.getElementById('okText').textContent = body;
+  document.getElementById('mailBtn').href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('Demande de devis – ' + d.entreprise)}&body=${encodeURIComponent(body)}`;
+  done.hidden = false;
+});
+document.getElementById('copyBtn').addEventListener('click', async e => {
+  const b = e.currentTarget;
+  try { await navigator.clipboard.writeText(document.getElementById('okText').textContent); b.textContent = 'Copié ✓'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('okText')); getSelection().removeAllRanges(); getSelection().addRange(r); b.textContent = 'Texte sélectionné'; }
+  setTimeout(() => b.textContent = 'Copier', 2200);
+});
+document.getElementById('backBtn').addEventListener('click', () => done.hidden = true);
+</script>
+</body>
+</html>

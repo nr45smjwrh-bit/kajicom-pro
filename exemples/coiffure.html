@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier Mèche · Salon de coiffure</title>
+<meta name="description" content="Site de démonstration KajiCom : salon de coiffure avec réservation en ligne.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="demo.css">
+<style>
+:root{--blush:#F3DCD4;--rose:#C9776A;--rose-d:#9E4F43;--ink:#191617;--soft:#6B6163;--paper:#FFFBF9;--line:#EEE2DE}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:400 16px/1.65 "Plus Jakarta Sans",system-ui,sans-serif;background:var(--paper);color:var(--ink)}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;line-height:1.05;text-wrap:balance}
+.wrap{width:min(1140px,100% - 32px);margin-inline:auto}
+header{padding:20px 0;border-bottom:1px solid var(--line);background:var(--paper)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-family:"DM Serif Display";font-size:1.6rem;text-decoration:none;color:var(--ink)}
+.brand i{color:var(--rose)}
+nav.menu{display:flex;gap:28px;font-weight:500;font-size:.95rem}
+nav.menu a{text-decoration:none;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-family:inherit;font-size:.98rem;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.rose{background:var(--rose);color:#fff}
+.btn.ghost{border:1.5px solid var(--ink);color:var(--ink)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:min(86vh,720px)}
+.hero .txt{display:flex;flex-direction:column;justify-content:center;padding:60px max(16px,calc((100vw - 1140px)/2)) 60px max(16px,calc((100vw - 1140px)/2));padding-right:48px;background:var(--blush)}
+.hero h1{font-size:clamp(2.6rem,5.6vw,4.8rem)}
+.hero h1 i{color:var(--rose-d)}
+.hero p{color:#4B3F41;font-size:1.1rem;margin:18px 0 28px;max-width:460px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .img{background:url(../assets/photos/coiffure-coupe.jpg) center/cover;min-height:360px}
+.rating{display:flex;align-items:center;gap:10px;margin-top:28px;font-size:.92rem;color:#4B3F41}
+.rating b{color:var(--ink)}
+section{padding:90px 0}
+.kicker{font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-d)}
+h2{font-size:clamp(2rem,4.2vw,3.2rem);margin:10px 0 14px}
+.lead{color:var(--soft);max-width:560px}
+.tabs{display:flex;gap:8px;margin:34px 0 10px;flex-wrap:wrap}
+.tabs button{font:700 .95rem "Plus Jakarta Sans";padding:10px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:0 60px}
+.row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.row small{display:block;color:var(--soft)}
+.row span{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.booking{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.booking .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start}
+.widget{border:1px solid var(--line);border-radius:24px;padding:26px;background:var(--paper);box-shadow:0 30px 60px -40px rgba(158,79,67,.6)}
+.widget h3{font-size:1.5rem;margin-bottom:14px}
+.widget .lbl{font-weight:700;font-size:.85rem;margin:18px 0 8px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 .9rem "Plus Jakarta Sans";padding:9px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--rose);border-color:var(--rose);color:#fff}
+.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.days .chip{display:grid;text-align:center;padding:8px 4px;line-height:1.2}
+.days .chip small{font-weight:500;font-size:.72rem}
+.summary{margin-top:20px;padding:14px 16px;border-radius:14px;background:var(--blush);font-size:.92rem}
+.widget .btn{width:100%;margin-top:14px}
+.perks{display:grid;gap:16px;margin-top:26px}
+.perks div{display:flex;gap:14px;align-items:flex-start}
+.perks i{flex:none;width:38px;height:38px;border-radius:12px;background:var(--blush);display:grid;place-items:center;font-style:normal}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:40px}
+.gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:18px}
+footer{background:var(--ink);color:#BDB2B4;padding:32px 0;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (max-width:860px){
+  nav.menu{display:none}
+  .hero,.prices,.booking .wrap,.gallery{grid-template-columns:1fr}
+  .hero .txt{padding:48px 16px}
+  .hero .img{order:-1;min-height:300px}
+  .days{grid-template-columns:repeat(3,1fr)}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+<div class="kc-demo"><span><b>Site de démonstration</b> conçu par KajiCom</span><a class="back" href="../index.html#realisations">← Retour</a><a href="../index.html#contact">Je veux un site comme ça</a></div>
+
+<header><div class="wrap">
+  <a class="brand" href="#">Atelier <i>Mèche</i></a>
+  <nav class="menu"><a href="#tarifs">Tarifs</a><a href="#rdv">Rendez-vous</a><a href="#salon">Le salon</a></nav>
+  <a class="btn dark" href="#rdv">Prendre RDV</a>
+</div></header>
+
+<section class="hero" style="padding:0">
+  <div class="txt">
+    <span class="kicker">Coiffure · Couleur · Soins</span>
+    <h1>Des cheveux qui vous <i>ressemblent.</i></h1>
+    <p>Coupe sur mesure, balayage naturel et couleurs végétales, dans un salon calme où l'on prend le temps de vous écouter.</p>
+    <div class="ctas"><a class="btn rose" href="#rdv">Réserver en ligne</a><a class="btn ghost" href="#tarifs">Voir les tarifs</a></div>
+    <div class="rating"><b>Sans attente</b> · rendez-vous confirmé immédiatement, rappel par SMS la veille</div>
+  </div>
+  <div class="img" role="img" aria-label="Coiffeuse en train de sécher les cheveux d'une cliente"></div>
+</section>
+
+<section id="tarifs"><div class="wrap">
+  <span class="kicker">Nos tarifs</span>
+  <h2>Des prix clairs, affichés.</h2>
+  <p class="lead">Shampoing et coiffage compris. Le prix final vous est confirmé avant de commencer.</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="femme">Femme</button>
+    <button role="tab" aria-selected="false" data-tab="homme">Homme</button>
+    <button role="tab" aria-selected="false" data-tab="enfant">Enfant</button>
+  </div>
+  <div class="prices" data-panel="femme">
+    <div class="row"><div>Coupe + brushing<small>cheveux courts à mi-longs</small></div><span>42 €</span></div>
+    <div class="row"><div>Coupe + brushing<small>cheveux longs</small></div><span>52 €</span></div>
+    <div class="row"><div>Balayage naturel<small>avec patine et soin</small></div><span>dès 95 €</span></div>
+    <div class="row"><div>Couleur végétale<small>racines</small></div><span>55 €</span></div>
+  </div>
+  <div class="prices" data-panel="homme" hidden>
+    <div class="row"><div>Coupe homme<small>shampoing compris</small></div><span>26 €</span></div>
+    <div class="row"><div>Coupe + barbe<small>taille et finitions</small></div><span>36 €</span></div>
+    <div class="row"><div>Barbe seule<small>serviette chaude</small></div><span>16 €</span></div>
+    <div class="row"><div>Coupe tondeuse<small>une hauteur</small></div><span>18 €</span></div>
+  </div>
+  <div class="prices" data-panel="enfant" hidden>
+    <div class="row"><div>Coupe enfant<small>moins de 10 ans</small></div><span>16 €</span></div>
+    <div class="row"><div>Coupe ado<small>10 à 16 ans</small></div><span>21 €</span></div>
+  </div>
+</div></section>
+
+<section class="booking" id="rdv"><div class="wrap">
+  <div class="reveal">
+    <span class="kicker">Rendez-vous en ligne</span>
+    <h2>Réservez à toute heure, même salon fermé.</h2>
+    <p class="lead">Vos clients choisissent leur prestation et leur créneau en trois clics. Vous recevez le rendez-vous directement dans votre agenda.</p>
+    <div class="perks">
+      <div><i>📅</i><span><b>Agenda à jour en temps réel</b><br>Les créneaux déjà pris disparaissent automatiquement.</span></div>
+      <div><i>💬</i><span><b>Rappel SMS la veille</b><br>Beaucoup moins de rendez-vous oubliés.</span></div>
+      <div><i>🔁</i><span><b>Annulation en un clic</b><br>Le créneau se libère pour quelqu'un d'autre.</span></div>
+    </div>
+  </div>
+  <div class="widget reveal">
+    <h3>Prendre rendez-vous</h3>
+    <span class="lbl">1. Prestation</span>
+    <div class="chips" data-group="presta">
+      <button class="chip on">Coupe + brushing</button><button class="chip">Coupe homme</button><button class="chip">Balayage</button><button class="chip">Couleur</button>
+    </div>
+    <span class="lbl">2. Jour</span>
+    <div class="days chips" data-group="jour">
+      <button class="chip on">Mar<small>18</small></button><button class="chip">Mer<small>19</small></button><button class="chip">Jeu<small>20</small></button><button class="chip">Ven<small>21</small></button><button class="chip">Sam<small>22</small></button><button class="chip" disabled>Lun<small>24</small></button>
+    </div>
+    <span class="lbl">3. Heure</span>
+    <div class="chips" data-group="heure">
+      <button class="chip">9:30</button><button class="chip" disabled>10:30</button><button class="chip on">11:00</button><button class="chip">14:00</button><button class="chip" disabled>15:30</button><button class="chip">17:00</button>
+    </div>
+    <div class="summary" id="summary">Coupe + brushing · Mar 18 · 11:00</div>
+    <button class="btn dark" id="confirm" type="button">Confirmer le rendez-vous</button>
+  </div>
+</div></section>
+
+<section id="salon"><div class="wrap">
+  <span class="kicker">Le salon</span>
+  <h2>Lumineux, calme, sans chichis.</h2>
+  <div class="gallery">
+    <img class="reveal" src="../assets/photos/coiffure-salon.jpg" alt="Intérieur du salon, fauteuils roses" loading="lazy">
+    <img class="reveal" src="../assets/photos/coiffure-salon2.jpg" alt="Postes de coiffure" loading="lazy">
+  </div>
+  <p class="lead" style="margin-top:24px">8 rue Saint-Martin · Mardi au samedi, 9 h – 19 h · 03 23 00 00 02</p>
+</div></section>
+
+<footer><div class="wrap"><span>© Atelier Mèche</span><span>Mentions légales · Instagram</span></div></footer>
+<script src="demo.js"></script>
+<script>
+document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== b.dataset.tab);
+}));
+const pick = {};
+document.querySelectorAll('[data-group]').forEach(g => {
+  g.addEventListener('click', e => {
+    const c = e.target.closest('.chip'); if (!c || c.disabled) return;
+    g.querySelectorAll('.chip').forEach(x => x.classList.toggle('on', x === c));
+    upd();
+  });
+});
+function txt(g) { const c = document.querySelector(`[data-group="${g}"] .chip.on`); return c ? c.textContent.replace(/(\D+)(\d+)/, '$1 $2').trim() : '—'; }
+function upd() { document.getElementById('summary').textContent = `${txt('presta')} · ${txt('jour')} · ${txt('heure')}`; }
+document.getElementById('confirm').addEventListener('click', () => kcToast('Site de démonstration : sur votre vrai site, ce rendez-vous arriverait dans votre agenda et le client recevrait un SMS.'));
+</script>
+</body>
+</html>
